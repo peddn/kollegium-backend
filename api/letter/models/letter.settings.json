@@ -18,7 +18,7 @@
       "unique": true,
       "maxLength": 255
     },
-    "files": {
+    "documents": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
