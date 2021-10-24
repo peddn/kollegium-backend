@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "perusals",
+  "info": {
+    "name": "perusal"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "owner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "letter": {
+      "model": "letter"
+    },
+    "signed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    }
+  }
+}
