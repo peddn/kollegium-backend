@@ -12,7 +12,7 @@ module.exports = {
         //console.log(ctx.state.user);
         let entities;
         const userId = ctx.state.user.id;
-        entities = await strapi.services.perusal.own({ owner: [ userId ] }, [ 'letter', 'letter.files' ]);
+        entities = await strapi.services.perusal.own({ owner: [ userId ] }, [ 'letter', 'letter.documents' ]);
         return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.perusal }));
     }
 };
