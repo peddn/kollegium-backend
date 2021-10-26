@@ -58,6 +58,14 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "firstName": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 255
     }
   }
 }
