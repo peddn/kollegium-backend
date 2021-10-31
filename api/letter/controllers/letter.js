@@ -67,17 +67,13 @@ module.exports = {
   async findOne(ctx) {
     const { id } = ctx.params;
     const { query } = ctx.request;
-
     const entity = await strapi.services.letter.findOne({ id });
-
     if (query.hasOwnProperty('format')) {
       switch (query.format) {
         case 'csv':
           ctx.response.set('Content-Disposition', 'attachment; filename="export.csv"');
           ctx.response.set('Content-Type', 'text/csv;  charset=UTF-8');
-
           let body = 'Nachname;Vorname;gesichet\n';
-
           const perusals = await strapi.services.perusal.find({ letter: id });
           for (let perusal of perusals) {
             const ownerId = perusal.owner.id;
@@ -91,18 +87,14 @@ module.exports = {
             }
             body += owner.lastName + ';' + owner.firstName + ';' + signed + '\n'
           }
-
           ctx.response.body = body;
           return
-
         //return { message: 'download' }
         default:
           break;
       }
     }
-    
     return sanitizeEntity(entity, { model: strapi.models.letter })
-
   },
 
 };
